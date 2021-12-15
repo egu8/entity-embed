@@ -62,7 +62,16 @@ Run:
 pip install -r requirements-examples.txt
 ```
 
-Then check the example Jupyter Notebooks:
+Example Jupyter notebooks for ImageBlock and AutoBlock can be found below. Note that Google Drive is required to access the datasets.
+
+- [Shopee dataset using ImageBlock](/notebooks/Shopee_ImageBlock.ipynb)
+- [Shopee dataset using AutoBlock baseline](/notebooks/Shopee_AutoBlock.ipynb)
+- [Bookcover dataset using ImageBlock](/notebooks/BookCover_ImageBlock.ipynb)
+- [Bookcover dataset using AutoBlock baseline](/notebooks/BookCover_AutoBlock.ipynb)
+- [Facematcher dataset using ImageBlock](/notebooks/Facematch_ImageBlock.ipynb)
+
+
+Additional example Jupyter Notebooks for AutoBlock functionalities:
 
 - Deduplication, when you have a single dirty dataset with duplicates: [notebooks/Deduplication-Example.ipynb](/notebooks/Deduplication-Example.ipynb)
 - Record Linkage, when you have multiple clean datasets you need to link: [notebooks/Record-Linkage-Example.ipynb](/notebooks/Record-Linkage-Example.ipynb)
