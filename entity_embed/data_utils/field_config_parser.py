@@ -122,6 +122,9 @@ class FieldConfigDictParser:
         embed_dropout_p = field_config.get("embed_dropout_p", 0.2)
         use_attention = field_config.get("use_attention", True)
 
+        path = field_config.get("path")
+        dataset = field_config.get("dataset")
+
         return FieldConfig(
             key=key,
             field_type=field_type,
@@ -132,6 +135,8 @@ class FieldConfigDictParser:
             n_channels=n_channels,
             embed_dropout_p=embed_dropout_p,
             use_attention=use_attention,
+            path=path,
+            dataset=dataset,
         )
 
     @classmethod
