@@ -160,27 +160,28 @@ class ImageNumericalizer:
     def __init__(self, field, field_config):
         self.field = field
         self.path = field_config.path
+        self.dataset = field_config.dataset
 
     def build_tensor(self, val):
         try:
-          # # book covers =====================================================
-          # path = val.split("/")
-          # val = path[-2]+'/'+path[-1]
-          # img = cv.resize(cv.imread("/content/drive/MyDrive/8803 Project/data with id/book-covers/"+val), (64,64), interpolation = cv.INTER_AREA)/255
-          # # shopee ==========================================================
-          # img = cv.resize(cv.imread("/content/drive/MyDrive/8803 Project/data with id/train_images/"+val), (64,64), interpolation = cv.INTER_AREA)/255
-          # # facematcher =====================================================
-          # path = val.split("face-matcher")
-          # val = path[-2]+'/'+path[-1]
-          # img = cv.resize(cv.imread("/content/drive/MyDrive/8803 Project/data with id/trainset/"+val), (64,64), interpolation = cv.INTER_AREA)/255
-          # general =========================================================
-          img = cv.resize(cv.imread(self.path+val), (64,64), interpolation = cv.INTER_AREA)/255
+            if self.dataset == "bookcover":
+                path = val.split("/")
+                val = path[-2]+'/'+path[-1]
+                img = cv.resize(cv.imread("/book-covers/"+val), (64,64), interpolation = cv.INTER_AREA)/255
+            elif self.dataset == "shopee":
+                img = cv.resize(cv.imread("/train_images/"+val), (64,64), interpolation = cv.INTER_AREA)/255
+            elif self.dataset == "facematcher":
+                path = val.split("face-matcher")
+                val = path[-2]+'/'+path[-1]
+                img = cv.resize(cv.imread("/trainset/"+val), (64,64), interpolation = cv.INTER_AREA)/255
+            else:
+                img = cv.resize(cv.imread(self.path+val), (64,64), interpolation = cv.INTER_AREA)/255
 
 
-          img = np.transpose(img,[2,1,0])
-          img = torch.from_numpy(img)#.float()
+            img = np.transpose(img,[2,1,0])
+            img = torch.from_numpy(img)#.float()
         except:
-          img = torch.rand((3,64,64))
+            img = torch.rand((3,64,64))
 
         return img, 1
 
