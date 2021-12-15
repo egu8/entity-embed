@@ -14,6 +14,7 @@ from .numericalizer import (
     SemanticMultitokenNumericalizer,
     SemanticStringNumericalizer,
     StringNumericalizer,
+    ImageNumericalizer,
 )
 from .utils import compute_max_str_len, compute_vocab_counter
 
@@ -142,6 +143,7 @@ class FieldConfigDictParser:
             FieldType.MULTITOKEN: MultitokenNumericalizer,
             FieldType.SEMANTIC_STRING: SemanticStringNumericalizer,
             FieldType.SEMANTIC_MULTITOKEN: SemanticMultitokenNumericalizer,
+            FieldType.IMAGE: ImageNumericalizer,
         }
         numericalizer_cls = field_type_to_numericalizer_cls.get(field_type)
         if numericalizer_cls is None:
