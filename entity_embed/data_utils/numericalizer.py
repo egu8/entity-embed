@@ -50,6 +50,8 @@ class FieldConfig:
     n_channels: int
     embed_dropout_p: float
     use_attention: bool
+    path: str
+    dataset: str
 
     @property
     def is_multitoken(self):
